@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>Overview</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="css/general.css">
+                <!-- Bootstrap core CSS -->
+                <!-- custom album styles-->
+                <link href="css/album.css" rel="stylesheet">
+                    <!-- bootstrap core css -->
+                    <link href="css/bootstrap.min.css" rel="stylesheet">
+                        <style>
+                            
+                            .j1 {
+                                background-color:  rgb(228, 231, 235);
+                            }
+                        
+                        .green {
+                            background: green;
+                            color: green;
+                        }
+                        
+                        .red {
+                            background: red;
+                        }
+                        
+                        #table1 {
+                            font-weight: normal;
+                            font-size: 150%;
+                            border-collapse: collapse;
+                            width: 100%;
+                        }
+                        
+                        #table1 td, #table1 th {
+                            border: 1px solid #ddd;
+                            padding: 8px;
+                        }
+                        #table2 tr:nth-child(odd){background-color: #f2f2f2;}
+                        #table2 th {
+                            padding-top: 12px;
+                            padding-bottom: 12px;
+                            text-align: left;
+                            background-color: white;
+                            color: black;
+                        }
+                        #table2 {
+                            font-weight: normal;
+                            font-size: 150%;
+                            border-collapse: collapse;
+                            width: 100%;
+                        }
+                        
+                        #table2 td, #table2 th {
+                            border: none;
+                            padding: 8px;
+                        }
+                        #table2 tr:nth-child(odd){background-color: #f2f2f2;}
+                        #table2 th {
+                            font-weight: bold;
+                            padding-top: 12px;
+                            padding-bottom: 12px;
+                            text-align: left;
+                            background-color: white;
+                            color: black;
+                        }
+                        
+                        
+                            </style>
+                        </head>
+    
+    <body>
+        <section class = "j1">
+            <a href="index.htm" class="general">Home</a>
+            <table id="table2">
+                <tr>
+                    <th>Test Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Car Inspection (with damage)</b></th>
+                    <th id="overall"></th>
+                </tr>
+                <tr>
+                    <td >Test Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;04-08-2018</td>
+                    <td>Test Description: &nbsp;&nbsp;Flight code preliminary testing around a small object</td>
+                </tr>
+            </table>
+        </section>
+        
+        <div class="container">
+            
+            <br />
+            <iframe name="detail" src="car2_overview/overview_detail.htm" class="float-right" width="400" height="400"></iframe>
+            <img src="car2_overview/car.png" usemap="#image-map">
+                <map name="image-map">
+                    <area target="detail" alt="Right Mirror" title="Right Mirror" href="car2_overview/LINK_1.htm" onclick="return myFunction(this.href, 1)" coords="108,246,6,89" shape="rect" />
+                    <area target="detail" alt="Left Mirror" title="Left Mirror" href="car2_overview/LINK_2.htm" onclick="return myFunction(this.href, 2)" coords="0,6,112,87" shape="rect" />
+                    <area target="detail" alt="Hood Left" title="Hood Left" href="car2_overview/LINK_3.htm" onclick="return myFunction(this.href, 3)" coords="113,5,227,144" shape="rect" />
+                    <area target="detail" alt="Hood Right" title="Hood Right" href="car2_overview/LINK_4.htm" onclick="return myFunction(this.href, 4)" coords="228,0,358,145" shape="rect" />
+                    <area target="detail" alt="Hood Front" title="Hood Front" href="car2_overview/LINK_5.htm" onclick="return myFunction(this.href, 5)" coords="359,2,573,115" shape="rect" />
+                    <area target="detail" alt="Front Right Door" title="Front Right Door" href="car2_overview/LINK_6.htm"onclick="return myFunction(this.href, 6)" coords="572,116,368,207" shape="rect" />
+                    <area target="detail" alt="Front Left Door" title="Front Left Door" href="car2_overview/LINK_7.htm" onclick="return myFunction(this.href, 7)" coords="368,208,567,333" shape="rect" />
+                    <area target="detail" alt="Rear Right Door" title="Rear Right Door" href="car2_overview/LINK_8.htm" onclick="return myFunction(this.href, 8)" coords="221,151,366,336" shape="rect" />
+                    <area target="detail" alt="Rear Left Door" title="Rear Left Door" href="car2_overview/LINK_9.htm" onclick="return myFunction(this.href, 9)" coords="107,149,220,336" shape="rect" />
+                    <area target="detail" alt="Bumper Right" title="Bumper Right" href="car2_overview/LINK_10.htm" onclick="return myFunction(this.href, 10)" coords="2,248,104,336" shape="rect" />
+                </map>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+        <section class = "j1">
+            <table id="table1">
+                <tr>
+                    <!-- expected location (waypoint) -->
+                    <td rowspan="2"> <b> Selection Data </b> </td>
+                    <td id="lat"></td>
+                    <td id="long"></td>
+                    <td id="heading"></td>
+                </tr>
+                <tr>
+                    <!--drone result (actual) -->
+                    <td id="geotag_lat"></td>
+                    <td id="geotag_long"></td>
+                    <td id="inspection"></p>
+                        </tr>
+                <tr>
+                    <th colspan="4">Flight Path</th>
+                </tr>
+                <tr>
+                    <td colspan="4"><img class="plot" src="plot1.png" /></td>
+                </tr>
+            </table>
+        </section>
+        
+        <script>
+            var strLat = "Latitude: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            var strLong = "Longitude: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            var strHead = "Heading: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            var strLatGeotag = "Geotag Latitude: &nbsp;&nbsp;&nbsp;&nbsp;";
+            var strLongGeotag = "Geotag Longitude: &nbsp;";
+            var strInspection = "Inspection for this section: ";
+            var strOverall = "Overall Inspection Results: ";
+            document.getElementById("lat").innerHTML = strLat;
+            document.getElementById("long").innerHTML = strLong;
+            document.getElementById("heading").innerHTML = strHead;
+            document.getElementById("geotag_lat").innerHTML = strLatGeotag;
+            document.getElementById("geotag_long").innerHTML = strLongGeotag;
+            document.getElementById("inspection").innerHTML = strInspection;
+            document.getElementById("overall").innerHTML = strOverall;
+            var lines = [];
+            
+            $(document).ready(function() {
+                              $.ajax({
+                                     type: "GET",
+                                     url: "./car2_overview/car_waypoints.csv",
+                                     dataType: "text",
+                                     success: function(data) {processData(data);},
+                                     error: function(xhr, ajaxOptions, thrownError) { alert("Status: " + xhr.status + "     Error: " + thrownError + " You need to be running a web server to access the photo files"); }
+                                     });
+                              
+                              
+                              
+                              });
+                              
+                              function processData(allText) {
+                                  var allTextLines = allText.split(/\r\n|\n/);
+                                  var headers = allTextLines[0].split(',');
+                                  for (var i=1; i<allTextLines.length; i++) {
+                                      var data = allTextLines[i].split(',');
+                                      if (data.length == headers.length) {
+                                          var tarr = [];
+                                          for (var j=0; j<headers.length; j++) {
+                                              tarr.push(data[j]);
+                                          }
+                                          lines.push(tarr);
+                                          console.log(tarr);
+                                      }
+                                  }
+                                  console.log(lines)
+                              }
+        
+        var x = 0;
+        var y = 0;
+        function myFunction(url, index) {
+            
+            var myWindow = window.open(url,"_blank", "width=400,height=400");
+            myWindow.moveTo(x,y);
+            myWindow.focus();
+            x+=400;
+            if(x > 1000) {
+                y+=400;
+                x = 0;
+                if(y>700) {
+                    y = 0;
+                }
+            }
+            try {
+                console.log(index);
+                index -= 1;
+                console.log(lines[index]);
+                document.getElementById("lat").innerHTML = strLat + lines[index][1];
+                document.getElementById("long").innerHTML = strLong + lines[index][2];
+                document.getElementById("heading").innerHTML = strHead + lines[index][3];
+                document.getElementById("geotag_lat").innerHTML = strLatGeotag + lines[index][5];
+                document.getElementById("geotag_long").innerHTML = strLongGeotag + lines[index][6];
+                var insp = document.getElementById("inspection").innerHTML = lines[index][7];
+                if (insp == 'Damage Detected!') {
+                    document.getElementById("inspection").style.color = "red";
+                } else {
+                    document.getElementById("inspection").style.color = "black";
+                }
+                var el = document.getElementById("overall").innerHTML = lines[index][8];
+                if(el == 'Damage Detected!') {
+                    document.getElementById("overall").style.color = "red";
+                }
+                
+            }
+            catch(err) {
+                alert("Error: Index may be invalid");
+            }
+        }
+        
+        
+            </script>
+        
+        
+        
+        
+        
+    </body>
+</html>
+

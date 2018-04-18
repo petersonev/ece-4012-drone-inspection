@@ -1,0 +1,7 @@
+How to run PHP websites
+
+1. Change directories to the website_simple folder
+2. Run this command
+	php -S localhost:8000
+3. Open this link in a web browser 
+	http://localhost:8000/index.htm

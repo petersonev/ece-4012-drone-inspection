@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Interactive Inspection</title>
+        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+                
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                    <link rel="stylesheet" type="text/css" href="css/general.css">
+                        <!-- custom album styles-->
+                        <link href="css/album.css" rel="stylesheet">
+                            <!-- bootstrap core css -->
+                            <link href="css/bootstrap.min.css" rel="stylesheet">
+                                
+                                <style>
+                                    
+                                    .j1 {
+                                        background-color:  rgb(228, 231, 235);
+                                    }
+                                #table1 {
+                                    font-weight: normal;
+                                    font-size: 150%;
+                                    border-collapse: collapse;
+                                    width: 100%;
+                                }
+                                
+                                #table1 td, #table1 th {
+                                    border: 1px solid #ddd;
+                                    padding: 8px;
+                                }
+                                #table1 tr:nth-child(odd){background-color: #f2f2f2;}
+                                #table1 th {
+                                    padding-top: 12px;
+                                    padding-bottom: 12px;
+                                    text-align: left;
+                                    background-color: #4CAF50;
+                                    color: white;
+                                }
+                                #table2 tr:nth-child(odd){background-color: #f2f2f2;}
+                                #table2 th {
+                                    padding-top: 12px;
+                                    padding-bottom: 12px;
+                                    text-align: left;
+                                    background-color: white;
+                                    color: black;
+                                }
+                                #table2 {
+                                    font-weight: normal;
+                                    font-size: 150%;
+                                    border-collapse: collapse;
+                                    width: 100%;
+                                }
+                                
+                                #table2 td, #table2 th {
+                                    border: none;
+                                    padding: 8px;
+                                }
+                                #table2 tr:nth-child(odd){background-color: #f2f2f2;}
+                                #table2 th {
+                                    font-weight: bold;
+                                    padding-top: 12px;
+                                    padding-bottom: 12px;
+                                    text-align: left;
+                                    background-color: white;
+                                    color: black;
+                                }
+                                
+                                    </style>
+    </head>
+    <body>
+        
+        <div class="container">
+            
+            <section class = "j1">
+                <a href="index.htm" class="general">Home</a>
+                <table id="table2">
+                    <tr>
+                        <th>Test Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Car Inspection</b></th>
+                        <th id="overall"></th>
+                    </tr>
+                    <tr>
+                        <td >Test Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;04-08-2018</td>
+                        <td>Test Description: &nbsp;&nbsp;Flight code preliminary testing around a small object</td>
+                    </tr>
+                </table>
+            </section>
+            <br />
+            
+            <div id="myCarousel" class="carousel slide carousel-fullscreen carousel-fade" data-ride="carousel" data-interval="false">
+                
+                <div class="carousel-inner">
+                    
+                    <!-- 1 -->
+                    <div class="item active">
+                        <img src="car_overview/1.jpg" alt="A" style="width:100%;" onclick="return myFunction('1')">
+                            <div class="carousel-caption">
+                            </div>
+                            </div>
+                    <!-- 2 -->
+                    <div class="item">
+                        <img src="car_overview/2.jpg" alt="B" style="width:100%;" onclick="return myFunction('2')">
+                            <div class="carousel-caption">
+                            </div>
+                            </div>
+                    
+                    <!-- 2 -->
+                    <div class="item">
+                        <img src="car_overview/3.jpg" alt="B" style="width:100%;" onclick="return myFunction('2')">
+                            <div class="carousel-caption">
+                            </div>
+                            </div>
+                    <!-- 2 -->
+                    <div class="item">
+                        <img src="car_overview/4.jpg" alt="B" style="width:100%;" onclick="return myFunction('2')">
+                            <div class="carousel-caption">
+                            </div>
+                            </div>
+                    <!-- 2 -->
+                    <div class="item">
+                        <img src="car_overview/5.jpg" alt="B" style="width:100%;" onclick="return myFunction('2')">
+                            <div class="carousel-caption">
+                            </div>
+                            </div>
+                    <!-- 2 -->
+                    <div class="item">
+                        <img src="car_overview/6.jpg" alt="B" style="width:100%;" onclick="return myFunction('2')">
+                            <div class="carousel-caption">
+                            </div>
+                            </div>
+                    <!-- 2 -->
+                    <div class="item">
+                        <img src="car_overview/7.jpg" alt="B" style="width:100%;" onclick="return myFunction('2')">
+                            <div class="carousel-caption">
+                            </div>
+                            </div>
+                    <!-- 2 -->
+                    <div class="item">
+                        <img src="car_overview/8.jpg" alt="B" style="width:100%;" onclick="return myFunction('2')">
+                            <div class="carousel-caption">
+                            </div>
+                            </div>
+                    <!-- 2 -->
+                    <div class="item">
+                        <img src="car_overview/9.jpg" alt="B" style="width:100%;" onclick="return myFunction('2')">
+                            <div class="carousel-caption">
+                            </div>
+                            </div>
+                    <!-- 2 -->
+                    <div class="item">
+                        <img src="car_overview/10.jpg" alt="B" style="width:100%;" onclick="return myFunction('2')">
+                            <div class="carousel-caption">
+                            </div>
+                            </div>
+                    
+                    
+                </div>
+                
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                </p>
+                
+            </div>
+        </div>
+        
+        <section class = "j1">
+            <table id="table1">
+                <tr>
+                    <!-- expected location (waypoint) -->
+                    <td rowspan="2"> <b> Selection Data </b> </td>
+                    <td id="lat"></td>
+                    <td id="long"></td>
+                    <td id="heading"></td>
+                </tr>
+                <tr>
+                    <!--drone result (actual) -->
+                    <td id="geotag_lat"></td>
+                    <td id="geotag_long"></td>
+                    <td id="inspection"></p>
+                </tr>
+                <tr>
+                    <th colspan="4">Flight Path</th>
+                </tr>
+                <tr>
+                    <td colspan="4"><img class="plot" src="plot1.png" /></td>
+                </tr>
+            </table>
+        </section>
+        
+        <script>
+            var strLat = "Latitude: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            var strLong = "Longitude: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            var strHead = "Heading: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            var strLatGeotag = "Geotag Latitude: &nbsp;&nbsp;&nbsp;&nbsp;";
+            var strLongGeotag = "Geotag Longitude: &nbsp;";
+            var strInspection = "Inspection for this section: ";
+            var strOverall = "Overall Inspection Results: ";
+            document.getElementById("lat").innerHTML = strLat;
+            document.getElementById("long").innerHTML = strLong;
+            document.getElementById("heading").innerHTML = strHead;
+            document.getElementById("geotag_lat").innerHTML = strLatGeotag;
+            document.getElementById("geotag_long").innerHTML = strLongGeotag;
+            document.getElementById("inspection").innerHTML = strInspection;
+            document.getElementById("overall").innerHTML = strOverall;
+            var lines = [];
+            
+            $(document).ready(function() {
+                              $.ajax({
+                                     type: "GET",
+                                     url: "./car_overview/car_waypoints.csv",
+                                     dataType: "text",
+                                     success: function(data) {processData(data);},
+                                     error: function(xhr, ajaxOptions, thrownError) { alert("Status: " + xhr.status + "     Error: " + thrownError + " You need to be running a web server to access the photo files"); }
+                                     });
+                              
+                              });
+                              
+                              function processData(allText) {
+                                  var allTextLines = allText.split(/\r\n|\n/);
+                                  var headers = allTextLines[0].split(',');
+                                  for (var i=1; i<allTextLines.length; i++) {
+                                      var data = allTextLines[i].split(',');
+                                      if (data.length == headers.length) {
+                                          var tarr = [];
+                                          for (var j=0; j<headers.length; j++) {
+                                              tarr.push(data[j]);
+                                          }
+                                          lines.push(tarr);
+                                          console.log(tarr);
+                                      }
+                                  }
+                                  console.log(lines)
+                              }
+        
+        var x = 0;
+        var y = 0;
+        function myFunction(index) {
+            
+            
+            try {
+                console.log(index);
+                index -= 1;
+                console.log(lines[index]);
+                document.getElementById("lat").innerHTML = strLat + lines[index][1];
+                document.getElementById("long").innerHTML = strLong + lines[index][2];
+                document.getElementById("heading").innerHTML = strHead + lines[index][3];
+                document.getElementById("geotag_lat").innerHTML = strLatGeotag + lines[index][5];
+                document.getElementById("geotag_long").innerHTML = strLongGeotag + lines[index][6];
+                var insp = document.getElementById("inspection").innerHTML = strInspection + lines[index][7];
+                if (insp == 'Damage Detected!') {
+                    document.getElementById("inspection").style.color = "red";
+                } else {
+                    document.getElementById("inspection").style.color = "black";
+                }
+                var el = document.getElementById("overall").innerHTML = strOverall + lines[index][8];
+                if(el == 'Damage Detected!') {
+                    document.getElementById("overall").style.color = "red";
+                }
+                
+            }
+            catch(err) {
+                alert("Error: Index may be invalid");
+            }
+        }
+        
+        
+            </script>
+    </body>
+</html>
